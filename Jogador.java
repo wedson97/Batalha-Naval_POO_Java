@@ -46,16 +46,16 @@ public class Jogador {
         jogadorAdversario.taboleiro();
         atirar(jogadorAdversario);
     }
+    
     public void atirar(Jogador jogadorAdversario){
         mostrarJogoAdversario();
-        System.out.println(nome);
         System.out.println("Informe a linha e a coluna que deseja atirar:");
         for(int i=0;i<2;i++){
             System.out.print("Linha: ");
             int linha  = c.nextInt();
             System.out.print("Coluna: ");
             int coluna = c.nextInt();
-            if(jogadorAdversario.verificarSeAcertou(linha, coluna)==false){
+            if(jogadorAdversario.verificarSeAcertou(linha, coluna)==true){
                 jogadorAdversario.registrarTiro(this, linha, coluna);
                 System.out.println("Acertou uma arma");
             }else{
@@ -64,24 +64,24 @@ public class Jogador {
             }
         }
         mostrarMeuJogo();
-        System.out.println("---------------------------------");
         boolean novamente = ganhar(jogadorAdversario);
         if(novamente == true){
             jogadorAdversario.atirar(this);
         }else{
             System.out.println("Ganhador: "+this.nome);
-        }
-        
+        } 
     }
+    
     public boolean verificarSeAcertou(int i, int j){
         if(meuJogo[i][j]==' ' || meuJogo[i][j]=='x'){
-            return true;
+            return false;
             }else{
-              return false;
+              return true;
           }       
     }
+    
     public void registrarTiro(Jogador jogador, int i, int j){
-        if(verificarSeAcertou(i,j)==false){
+        if(verificarSeAcertou(i,j)==true){
             meuJogo[i][j] = 'x';
             jogador.jogoAdversario[i][j]='o';
         }else{
@@ -90,6 +90,7 @@ public class Jogador {
         }
         
     }
+    
     public boolean ganhar(Jogador jogadorAdversario){
         boolean confirmar = false;
         for(int i=0;i<jogadorAdversario.meuJogo.length;i++){
@@ -101,8 +102,10 @@ public class Jogador {
         }
         return confirmar;
     }
+    
     public void mostrarMeuJogo(){
-        System.out.println(nome);
+        System.out.println("---------------------------------");
+        System.out.println("Jogador: "+nome+"\nTabela do seu jogo");
         System.out.println(" 0 I 1 I 2 I 3 I 4 I 5 I 6 I 7");        
         for(int i=0;i<meuJogo.length;i++){
             System.out.print(i);
@@ -112,7 +115,10 @@ public class Jogador {
             System.out.println("\n");
         }
     }
+    
     public void mostrarJogoAdversario(){
+        System.out.println("---------------------------------");
+        System.out.println("Jogador: "+nome+"\nTabela do adversario");
         System.out.println(" 0 I 1 I 2 I 3 I 4 I 5 I 6 I 7");        
         for(int l=0;l<jogoAdversario.length;l++){
             System.out.print(l);
@@ -122,6 +128,7 @@ public class Jogador {
             System.out.println("\n");
         }
     }
+    
     public void taboleiro(){
         for(int i=0;i<meuJogo.length;i++){
             for(int j=0;j<meuJogo.length;j++){
@@ -131,53 +138,57 @@ public class Jogador {
         }
         armas();
     }
+    
     public void armas(){
         System.out.println("Jogador "+this.nome+" está se armando");
-
         while(true){
-        System.out.println("Informe a posicao do Submarino\nlinha: entre 1 e 4");
+        System.out.println("Informe a posicao do Submarino");
         System.out.print("Linha: ");
         int numeroUm = c.nextInt();
-        if(numeroUm>=1 || numeroUm<=4){
-            System.out.print("Coluna: ");
+        System.out.print("Coluna: entre 1 e 4\nColuna: ");
         int numeroDois = c.nextInt();
-           if(meuJogo[numeroUm][numeroDois+3]==' '){
-            meuJogo[numeroUm][numeroDois]='s';
-            meuJogo[numeroUm][numeroDois+1]='s';
-            meuJogo[numeroUm][numeroDois+2]='s';
-            break;
-        } }else{
-               System.out.println("Digite uma posicao valida");
-           } 
+        if(numeroDois>=1 && numeroDois<=4){
+            if(meuJogo[numeroUm][numeroDois+3]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
+                meuJogo[numeroUm][numeroDois]='s';
+                meuJogo[numeroUm][numeroDois+1]='s';
+                meuJogo[numeroUm][numeroDois+2]='s';
+                break;
+            }  
+        }else{
+            System.out.println("Digite uma posicao valida");
+           }  
         }
         
         while(true){
-        System.out.println("Informe a posicao do Submarino\nlinha: entre 1 e 5");
+        System.out.println("Informe a posicao do Cruzador");
         System.out.print("Linha: ");
         int numeroUm = c.nextInt();
-        if(numeroUm>=1 || numeroUm<=5){
-            System.out.print("Coluna: ");
+        System.out.print("Coluna: entre 1 e 5\nColuna: ");
         int numeroDois = c.nextInt();
-           if(meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' '){
-            meuJogo[numeroUm][numeroDois]='c';
-            meuJogo[numeroUm][numeroDois+1]='c';
-            break;
-        } }else{
-               System.out.println("Digite uma posicao valida");
-           } 
+        if(numeroDois<=5){
+            if(meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
+                meuJogo[numeroUm][numeroDois]='c';
+                meuJogo[numeroUm][numeroDois+1]='c';
+                break;
+                }   
+        }else{
+            System.out.println("Digite uma posicao valida");
+            } 
         }
+        
         while(true){
         System.out.println("Informe a posicao do Porta-avioes");
         System.out.print("Linha: ");
         int numeroUm = c.nextInt();
-        if(numeroUm>=1 || numeroUm<=4){
-            System.out.print("Coluna: ");
+        System.out.print("Coluna: entre 1 e 6\nColuna: ");
         int numeroDois = c.nextInt();
-           if(meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' '){
-            meuJogo[numeroUm][numeroDois]='p';
-            break;
-        } }else{
-               System.out.println("Digite uma posicao valida");
+        if(numeroDois<7){
+            if(meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+1]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
+                meuJogo[numeroUm][numeroDois]='p';
+                break;
+            }  
+        }else{
+            System.out.println("Digite uma posicao valida");
            } 
         }
     }
