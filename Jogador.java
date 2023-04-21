@@ -104,28 +104,26 @@ public class Jogador {
     }
     
     public void mostrarMeuJogo(){
-        System.out.println("---------------------------------");
         System.out.println("Jogador: "+nome+"\nTabela do seu jogo");
-        System.out.println(" 0 I 1 I 2 I 3 I 4 I 5 I 6 I 7");        
+        System.out.println(" 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7");        
         for(int i=0;i<meuJogo.length;i++){
             System.out.print(i);
             for(int j=0;j<meuJogo.length;j++){
-                System.out.print(meuJogo[i][j]+" I ");
+                System.out.print(meuJogo[i][j]+" | ");
             }
-            System.out.println("\n");
+            System.out.println("\n---------------------------------");
         }
     }
     
     public void mostrarJogoAdversario(){
-        System.out.println("---------------------------------");
         System.out.println("Jogador: "+nome+"\nTabela do adversario");
-        System.out.println(" 0 I 1 I 2 I 3 I 4 I 5 I 6 I 7");        
+        System.out.println(" 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7");        
         for(int l=0;l<jogoAdversario.length;l++){
             System.out.print(l);
             for(int k=0;k<jogoAdversario.length;k++){
-                System.out.print(jogoAdversario[l][k]+" I ");
+                System.out.print(jogoAdversario[l][k]+" | ");
             }
-            System.out.println("\n");
+            System.out.println("\n---------------------------------");
         }
     }
     
