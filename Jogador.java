@@ -161,7 +161,7 @@ public class Jogador {
         int numeroUm = c.nextInt();
         System.out.print("Coluna: entre 1 e 5\nColuna: ");
         int numeroDois = c.nextInt();
-        if(numeroDois<=5 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
+        if(numeroDois>=1 && numeroDois<=5 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
             meuJogo[numeroUm][numeroDois]='c';
             meuJogo[numeroUm][numeroDois+1]='c';
             break; 
@@ -176,7 +176,7 @@ public class Jogador {
         int numeroUm = c.nextInt();
         System.out.print("Coluna: entre 1 e 6\nColuna: ");
         int numeroDois = c.nextInt();
-        if(numeroDois<7 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+1]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){ 
+        if(numeroDois>=1 && numeroDois<7 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+1]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){ 
             meuJogo[numeroUm][numeroDois]='p';
             break;  
         }else{
