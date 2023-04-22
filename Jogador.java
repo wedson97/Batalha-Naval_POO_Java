@@ -145,16 +145,14 @@ public class Jogador {
         int numeroUm = c.nextInt();
         System.out.print("Coluna: entre 1 e 4\nColuna: ");
         int numeroDois = c.nextInt();
-        if(numeroDois>=1 && numeroDois<=4){
-            if(meuJogo[numeroUm][numeroDois+3]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
-                meuJogo[numeroUm][numeroDois]='s';
-                meuJogo[numeroUm][numeroDois+1]='s';
-                meuJogo[numeroUm][numeroDois+2]='s';
-                break;
+        if(numeroDois>=1 && numeroDois<=4 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+3]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
+            meuJogo[numeroUm][numeroDois]='s';
+            meuJogo[numeroUm][numeroDois+1]='s';
+            meuJogo[numeroUm][numeroDois+2]='s';
+            break;  
+            }else{
+                System.out.println("Digite uma posicao valida");
             }  
-        }else{
-            System.out.println("Digite uma posicao valida");
-           }  
         }
         
         while(true){
@@ -163,14 +161,12 @@ public class Jogador {
         int numeroUm = c.nextInt();
         System.out.print("Coluna: entre 1 e 5\nColuna: ");
         int numeroDois = c.nextInt();
-        if(numeroDois<=5){
-            if(meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
-                meuJogo[numeroUm][numeroDois]='c';
-                meuJogo[numeroUm][numeroDois+1]='c';
-                break;
-                }   
-        }else{
-            System.out.println("Digite uma posicao valida");
+        if(numeroDois<=5 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+2]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
+            meuJogo[numeroUm][numeroDois]='c';
+            meuJogo[numeroUm][numeroDois+1]='c';
+            break; 
+            }else{
+                System.out.println("Digite uma posicao valida");
             } 
         }
         
@@ -180,11 +176,9 @@ public class Jogador {
         int numeroUm = c.nextInt();
         System.out.print("Coluna: entre 1 e 6\nColuna: ");
         int numeroDois = c.nextInt();
-        if(numeroDois<7){
-            if(meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+1]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){
-                meuJogo[numeroUm][numeroDois]='p';
-                break;
-            }  
+        if(numeroDois<7 && meuJogo[numeroUm][numeroDois]==' ' && meuJogo[numeroUm][numeroDois+1]==' ' && meuJogo[numeroUm][numeroDois-1]==' '){ 
+            meuJogo[numeroUm][numeroDois]='p';
+            break;  
         }else{
             System.out.println("Digite uma posicao valida");
            } 
