@@ -1,4 +1,4 @@
-package myproject.batalhanaval;
+package com.mycompany.batalhanaval;
 
 import java.util.Scanner;
 
@@ -64,8 +64,7 @@ public class Jogador {
             }
         }
         mostrarMeuJogo();
-        boolean novamente = ganhar(jogadorAdversario);
-        if(novamente == true){
+        if(ganhar(jogadorAdversario) == false){
             jogadorAdversario.atirar(this);
         }else{
             System.out.println("Ganhador: "+this.nome);
@@ -92,11 +91,11 @@ public class Jogador {
     }
     
     public boolean ganhar(Jogador jogadorAdversario){
-        boolean confirmar = false;
+        boolean confirmar = true;
         for(int i=0;i<jogadorAdversario.meuJogo.length;i++){
             for(int j=0;j<jogadorAdversario.meuJogo.length;j++){
                 if(jogadorAdversario.meuJogo[i][j]!=' ' && jogadorAdversario.meuJogo[i][j]!='x'){
-                   confirmar = true;
+                   confirmar = false;
                 }
             }
         }
