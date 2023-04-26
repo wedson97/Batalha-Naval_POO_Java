@@ -1,4 +1,4 @@
-package com.mycompany.batalhanaval;
+package myproject.batalhanaval;
 
 import java.util.Scanner;
 
@@ -58,9 +58,11 @@ public class Jogador {
             if(jogadorAdversario.verificarSeAcertou(linha, coluna)==true){
                 jogadorAdversario.registrarTiro(this, linha, coluna);
                 System.out.println("Acertou uma arma");
+                System.out.println("---------------------------------");
             }else{
                 jogadorAdversario.registrarTiro(this, linha, coluna);
                 System.out.println("Acertou a agua");
+                System.out.println("---------------------------------");
             }
         }
         mostrarMeuJogo();
@@ -76,7 +78,7 @@ public class Jogador {
             return false;
             }else{
               return true;
-          }       
+            }       
     }
     
     public void registrarTiro(Jogador jogador, int i, int j){
@@ -87,7 +89,6 @@ public class Jogador {
             meuJogo[i][j] = 'x';
             jogador.jogoAdversario[i][j]='x';
         }
-        
     }
     
     public boolean ganhar(Jogador jogadorAdversario){
@@ -182,5 +183,6 @@ public class Jogador {
             System.out.println("Digite uma posicao valida");
            } 
         }
+        System.out.println("---------------------------------");
     }
 }
